@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Карта проекта — Fisht the Battle Dog</title>
+<style>
+:root{--bg:#12151a;--card:#1c2128;--line:#2d343d;--tx:#e8ecf1;--mut:#8b96a4;--idea:#8b96a4;--wip:#e5a63b;--built:#4aa3e8;--ver:#46c26b;--ask:#e8603c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;padding-bottom:80px}
+header{padding:14px 16px 4px}
+h1{margin:0;font-size:20px}
+.sub{color:var(--mut);font-size:13px}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#0c0e12;border-top:1px solid var(--line);z-index:5}
+nav a{flex:1;text-align:center;padding:10px 4px;color:var(--mut);text-decoration:none;font-size:12px}
+nav a b{display:block;font-size:20px;font-weight:400}
+nav a.on{color:var(--tx);background:var(--card)}
+nav .n{background:var(--ask);color:#fff;border-radius:9px;padding:0 6px;font-size:11px;margin-left:3px}
+main{padding:8px 12px;max-width:900px;margin:0 auto}
+section{display:none}section.on{display:block}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--tx);border-radius:16px;padding:5px 11px;font-size:13px;cursor:pointer}
+.chip.on{background:var(--tx);color:var(--bg)}
+.item{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--ask);border-radius:10px;padding:11px 12px;margin:8px 0}
+.item.q{border-left-color:var(--wip)}
+.item .t{font-size:16px}
+.item .m{color:var(--mut);font-size:12px;margin-top:4px}
+.tag{display:inline-block;font-size:11px;border-radius:5px;padding:1px 6px;margin-right:6px;background:var(--ask);color:#fff}
+.item.q .tag{background:var(--wip);color:#000}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.sys{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;overflow:hidden}
+.sys img{width:100%;border-radius:8px;margin-bottom:8px}
+.sys h3{margin:0 0 6px;font-size:17px}
+.st{display:inline-block;font-weight:700;font-size:15px;padding:4px 10px;border-radius:8px;color:#000}
+.st.idea{background:var(--idea)}.st.wip{background:var(--wip)}.st.built{background:var(--built)}.st.verified{background:var(--ver)}
+.bar{display:flex;gap:3px;margin:8px 0}.bar i{flex:1;height:5px;border-radius:3px;background:var(--line)}
+.bar i.f.idea{background:var(--idea)}.bar i.f.wip{background:var(--wip)}.bar i.f.built{background:var(--built)}.bar i.f.verified{background:var(--ver)}
+.sys p{margin:6px 0 0;font-size:14px}
+.sys .m{color:var(--mut);font-size:12px;margin-top:6px}
+.dec{display:flex;gap:10px;margin:0 0 12px}
+.dec .d{flex:0 0 74px;color:var(--mut);font-size:12px;padding-top:2px}
+.dec .b{flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.dec .r{color:var(--mut);font-size:13px;margin-top:5px}
+.dec .r s{color:#c98}
+.plan{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:20px;text-align:center;color:var(--mut)}
+.leg{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px;font-size:12px;color:var(--mut)}
+.empty{color:var(--mut);padding:20px;text-align:center}
+</style>
+</head>
+<body>
+<header><h1>🐕 Карта проекта</h1><div class="sub">Обновлено: <span id="gen"></span></div></header>
+<main>
+<section id="s-wait"><div class="chips" id="wf"></div><div id="wl"></div></section>
+<section id="s-sys"><div class="leg" id="leg"></div><div class="grid" id="sg"></div></section>
+<section id="s-dec"><div class="chips" id="df"></div><div id="dl"></div></section>
+<section id="s-atlas"><div class="plan">🖼 Атлас (галерея) — запланирован.<br>Данные: Docs/Hub/atlas.json</div></section>
+<section id="s-world"><div class="plan">📖 Мир (сюжет, диалоги, звук, стиль, пробелы) — запланирован.<br>Данные: Docs/Hub/world.json</div></section>
+</main>
+<nav id="nav"></nav>
+<script>
+const D={"waiting":[{"id":"w-crosshair","system":"combat","kind":"verdict","text":"Перекрестие: вид и положение","added":"2026-11-06","ref":"Docs/COMBAT_PLAN.md"},{"id":"w-shoot-feel","system":"combat","kind":"verdict","text":"Ощущение стрельбы (темп, отдача, трассы)","added":"2026-11-06","ref":"Docs/COMBAT_PLAN.md"},{"id":"w-muzzle","system":"combat","kind":"verdict","text":"Положение дула турели","added":"2026-11-06","ref":"Docs/VEST.md"},{"id":"w-md01","system":"enemies","kind":"verdict","text":"Вид дрона MD-01","added":"2026-11-06","ref":"Docs/ENEMY_ROADMAP.md"},{"id":"w-rmb-zoom","system":"camera","kind":"verdict","text":"Правая кнопка только приближает камеру, Фишт нормально бегает и прыгает","added":"2026-11-06","ref":"Docs/COMBAT_PLAN.md"},{"id":"w-bottank","system":"enemies","kind":"question","text":"Combat_BotTank висит над пустотой (y=5212, L_JR_Preview): убрать или переставить?","added":"2026-11-06"},{"id":"w-vest-lamps","system":"training","kind":"verdict","text":"Лампы в комнате испытания жилета","added":"2026-11-06","ref":"Docs/LEVEL_TRAINING.md"},{"id":"w-floors","system":"training","kind":"verdict","text":"Полы из Floor\\Training в редакторе","added":"2026-11-06","ref":"Docs/LEVEL_TRAINING.md"},{"id":"w-mech-look","system":"mechanisms","kind":"verdict","text":"Вид кнопок и дверей по состояниям","added":"2026-11-06","ref":"Docs/MECHANISMS.md"},{"id":"w-vest-fit","system":"vest","kind":"verdict","text":"Посадка жилета и шерсть под ним","added":"2026-11-06","ref":"Docs/VEST.md"},{"id":"w-gamepad","system":"ui","kind":"verdict","text":"Геймпад на реальном устройстве","added":"2026-11-06"},{"id":"w-jetpack-energy","system":"combat","kind":"question","text":"Джетпак: какая энергия и как тратится","added":"2026-11-04","ref":"Docs/COMBAT_PLAN.md"},{"id":"w-bite-button","system":"combat","kind":"question","text":"Постоянная кнопка укуса (пока F / крестовина вправо)","added":"2026-11-04","ref":"Docs/COMBAT_PLAN.md"},{"id":"w-dpad","system":"ui","kind":"question","text":"Что повесить на крестовину и стрелки (меню быстрого выбора)","added":"2026-11-04","ref":"Docs/COMBAT_PLAN.md"},{"id":"w-gear-slots","system":"vest","kind":"question","text":"Сколько слотов брони на старте (предложение: 4)","added":"2026-11-04","ref":"Docs/COMBAT_PLAN.md"},{"id":"w-friend11-d1","system":"training","kind":"question","text":"Каюта Фишта C02 (D1): можно ли её трогать","added":"2026-11-05","ref":"Docs/LEVEL_TRAINING.md"}],"systems":[{"id":"combat","name":"Бой","icon":"💥","status":"built","check":"не проверено глазами","note":"Пулемёт и второй слот, перекрестие, захват цели, пластик, эффекты","doc":"Docs/COMBAT_PLAN.md"},{"id":"enemies","name":"Враги","icon":"🤖","status":"wip","check":"не проверено глазами","note":"Дроны, стадии тревоги, манеры боя, разрушение. Дальше: свои модели, скелетные роботы","doc":"Docs/ENEMY_ROADMAP.md"},{"id":"vest","name":"Жилет и экипировка","icon":"🦺","status":"wip","check":"посадка не проверена","note":"Жилет, пояс, сопла, подсумки, лазерная пушка. Деталь + скин","doc":"Docs/VEST.md"},{"id":"progress","name":"Прокачка","icon":"📈","status":"idea","check":"утверждено, не начато","note":"Навыки экипировки за улучшающий пластик, схрон. После уровня Training","doc":"Docs/PROGRESSION_PLAN.md"},{"id":"mechanisms","name":"Механизмы","icon":"🔌","status":"built","check":"вид не проверен","note":"Кнопки, двери, ключ-карты, провода, сигналы","doc":"Docs/MECHANISMS.md"},{"id":"interaction","name":"Взаимодействие","icon":"🖐","status":"built","check":"не проверено","note":"Фокус по E, переноска предметов","doc":"Docs/INTERACTION.md"},{"id":"training","name":"Уровень Training","icon":"🏗","status":"wip","check":"полный прогон ботом не сделан","note":"Цепочка загадок собрана; нет надеваемого жилета, станций лечения","doc":"Docs/LEVEL_TRAINING.md"},{"id":"friend11","name":"Друг-11","icon":"🛸","status":"wip","check":"не проверено","note":"Летающий друг со скелетом","doc":"Docs/FRIEND11.md"},{"id":"anim","name":"Анимация","icon":"🐕","status":"wip","check":"не проверено глазами","note":"Мастер-пёс JR, прыжки, уступы; ждёт паки клипов лестницы","doc":"Docs/plan/anim.md"},{"id":"camera","name":"Камера","icon":"🎥","status":"wip","check":"не проверено","note":"Правая кнопка только приближает; открыто: пила на лестнице","doc":"Docs/plan/gameplay.md"},{"id":"ui","name":"Интерфейс","icon":"🖥","status":"wip","check":"геймпад не проверен","note":"HUD, подсказки, глифы, главное меню","doc":"Docs/plan/ui.md"},{"id":"localization","name":"Локализация","icon":"🌐","status":"wip","check":"не проверено","note":"Тексты через String Table, подсказки по устройству","doc":"Docs/LOCALIZATION.md"},{"id":"physics","name":"Физика и поверхности","icon":"🧱","status":"wip","check":"не проверено","note":"Шаги, следы; ждёт звуковые ассеты","doc":"Docs/SURFACES_HOWTO.md"},{"id":"props","name":"Пропсы","icon":"📦","status":"built","check":"светодиоды не проверены","note":"Blender → игра одной командой, разрушаемые","doc":"Docs/PROPS_PIPELINE.md"},{"id":"ropes","name":"Верёвки и балки","icon":"🪢","status":"wip","check":"не проверено","note":"Раскачивание, переноска","doc":"Docs/ROPE_BEAM.md"},{"id":"perf","name":"Производительность","icon":"⏱","status":"idea","check":"замер устарел","note":"Нужен новый замер на мастер-псе","doc":"Docs/plan/qa.md"}],"decisions":[{"date":"2026-11-06","system":"progress","title":"Навыки — это навыки экипировки, покупаются улучшающим пластиком","replaced":"личные навыки Фишта","doc":"Docs/PROGRESSION_PLAN.md"},{"date":"2026-11-06","system":"progress","title":"Экипировка меняется в схроне","replaced":"смена в любой момент (F1 — только для отладки)","doc":"Docs/PROGRESSION_PLAN.md"},{"date":"2026-11-06","system":"vest","title":"Форма от детали, украшение от скина; скин не даёт статов","replaced":"цвет и материал внутри детали","doc":"Docs/PROGRESSION_PLAN.md"},{"date":"2026-11-06","system":"combat","title":"Двойной прыжок заменён джетпаком: второе нажатие в воздухе включает его","replaced":"двойной прыжок (оставлен выключенным, MaxAirJumps = 0)","doc":"PLAN.md §6"},{"date":"2026-11-04","system":"combat","title":"Рокет-джамп заменён джетпаком (увеличенный прыжок за энергию)","replaced":"рокет-джамп (взрыв под Фиштом)","doc":"Docs/COMBAT_PLAN.md"},{"date":"2026-11-04","system":"combat","title":"Правая кнопка только приближает камеру; тело к прицелу не доворачивается","replaced":"режим прицеливания с разворотом тела (StrafeMode)","doc":"Docs/COMBAT_PLAN.md"},{"date":"2026-11-04","system":"combat","title":"Электроника стала двумя видами пластика: боевой (боеприпасы) и улучшающий (улучшения)","replaced":"один ресурс «электроника»","doc":"Docs/COMBAT_PLAN.md"},{"date":"2026-11-04","system":"combat","title":"Укус не боевой; атаку заменяет рывок-удар с разбега","replaced":"укус как атака","doc":"Docs/COMBAT_PLAN.md"},{"date":"2026-11-04","system":"combat","title":"Оружие встроено в жилет, модульность через боеприпасы, а не стволы","replaced":"сменные стволы","doc":"Docs/COMBAT_PLAN.md"}],"atlas":[],"world":{"story":[],"dialogues":[],"sound":[],"style":[],"gaps":[]},"generated":"2026-11-06 18:06"};
+const ST={idea:"Идея",wip:"В работе",built:"Собрано",verified:"Проверено вами"};
+const SO=["idea","wip","built","verified"];
+const sysName=Object.fromEntries(D.systems.map(s=>[s.id,s.name]));
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+document.getElementById("gen").textContent=D.generated;
+const tabs=[["wait","🙋","Ждёт вас",D.waiting.length],["sys","🧩","Системы"],["dec","📜","Решения"],["atlas","🖼","Атлас"],["world","📖","Мир"]];
+document.getElementById("nav").innerHTML=tabs.map(t=>`<a href="#${t[0]}" data-t="${t[0]}"><b>${t[1]}</b>${t[2]}${t[3]?`<span class="n">${t[3]}</span>`:""}</a>`).join("");
+function show(){const h=(location.hash||"#wait").slice(1);const k=tabs.some(t=>t[0]===h)?h:"wait";
+ document.querySelectorAll("section").forEach(s=>s.classList.toggle("on",s.id==="s-"+k));
+ document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===k));window.scrollTo(0,0)}
+addEventListener("hashchange",show);show();
+function chips(el,items,cur,cb){el.innerHTML=items.map(i=>`<button class="chip${i[0]===cur?" on":""}" data-v="${esc(i[0])}">${esc(i[1])}</button>`).join("");
+ el.onclick=e=>{const b=e.target.closest(".chip");if(b)cb(b.dataset.v)}}
+function sysFilter(list){const ids=[...new Set(list.map(x=>x.system))];return [["","Все"],...ids.map(i=>[i,sysName[i]||i])]}
+let wf="";function rw(){chips(document.getElementById("wf"),sysFilter(D.waiting),wf,v=>{wf=v;rw()});
+ const l=D.waiting.filter(x=>!wf||x.system===wf);
+ document.getElementById("wl").innerHTML=l.length?l.map(x=>`<div class="item ${x.kind==="question"?"q":""}"><div class="t"><span class="tag">${x.kind==="question"?"вопрос":"вердикт"}</span>${esc(x.text)}</div><div class="m">${esc(sysName[x.system]||x.system)} · ${esc(x.added)}${x.ref?" · "+esc(x.ref):""}</div></div>`).join(""):`<div class="empty">Пусто 🎉</div>`}rw();
+document.getElementById("leg").innerHTML=SO.map(k=>`<span class="st ${k}" style="font-size:12px;padding:2px 8px">${ST[k]}</span>`).join("");
+document.getElementById("sg").innerHTML=D.systems.map(s=>{const n=SO.indexOf(s.status);
+ return `<div class="sys">${s.image?`<img src="${esc(s.image)}" alt="">`:""}<h3>${esc(s.icon)} ${esc(s.name)}</h3><span class="st ${esc(s.status)}">${ST[s.status]||esc(s.status)}</span><div class="bar">${SO.map((k,i)=>`<i class="${i<=n?"f "+s.status:""}"></i>`).join("")}</div><p>${esc(s.note)}</p><div class="m">${esc(s.check||"не проверено")}</div></div>`}).join("");
+let df="";function rd(){chips(document.getElementById("df"),sysFilter(D.decisions),df,v=>{df=v;rd()});
+ const l=D.decisions.filter(x=>!df||x.system===df).sort((a,b)=>b.date.localeCompare(a.date));
+ document.getElementById("dl").innerHTML=l.map(x=>`<div class="dec"><div class="d">${esc(x.date)}</div><div class="b"><div>${esc(x.title)}</div>${x.replaced?`<div class="r">отменило: <s>${esc(x.replaced)}</s></div>`:""}<div class="r">${esc(sysName[x.system]||x.system)}${x.doc?" · "+esc(x.doc):""}</div></div></div>`).join("")}rd();
+</script>
+</body>
+</html>
