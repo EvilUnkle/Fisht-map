@@ -21,20 +21,20 @@
     },
     {
       "label": "Скорость",
-      "value": 7.2,
-      "unit": "м/с",
+      "value": "",
+      "unit": "",
       "max": ""
     },
     {
       "label": "Дальность зрения в бою",
-      "value": 16,
-      "unit": "м",
+      "value": "",
+      "unit": "",
       "max": ""
     },
     {
       "label": "Слух на шаги при ходьбе",
-      "value": 5,
-      "unit": "м",
+      "value": "",
+      "unit": "",
       "max": ""
     },
     {
@@ -56,12 +56,12 @@
       "max": ""
     }
   ],
-  "image": "",
+  "image": "cards/media/meditsinskaya-bronya-bbuy/portrait-1794240904197.jpg",
   "gallery": [
     "cards/media/meditsinskaya-bronya-bbuy/g-1794240077796-1.jpg"
   ],
   "sounds": [],
   "link": "",
   "created": "2026-11-09T16:01:20.301Z",
-  "updated": "2026-11-09T16:01:20.302Z"
+  "updated": "2026-11-09T16:15:07.781Z"
 }
