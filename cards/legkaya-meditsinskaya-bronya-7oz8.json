@@ -10,8 +10,8 @@
     {
       "label": "Защита",
       "value": 10,
-      "unit": "",
-      "max": 10
+      "unit": "%",
+      "max": 100
     },
     {
       "label": "Выносливость",
@@ -35,7 +35,7 @@
   "image": "cards/media/legkaya-meditsinskaya-bronya-7oz8/portrait-1794305829111.jpg",
   "gallery": [],
   "sounds": [],
-  "link": "",
+  "link": "game-skin-Skin_Vest_Light_Default",
   "created": "2026-11-10T10:17:13.321Z",
-  "updated": "2026-11-10T10:17:48.099Z"
+  "updated": "2026-11-10T10:23:41.337Z"
 }
