@@ -1,0 +1,8 @@
+{
+  "id": "w-recoil-numbers",
+  "question": "Отдача пулемёта после обнуления EmitterSide и новых чисел (сила 300, предел 12 см): сейчас заметна? Слишком сильно или мало? Подстройка: RecoilStrength и MaxRecoil у BP_LaserTurret",
+  "system": "combat",
+  "asked": "2026-11-10",
+  "answered_at": "2026-11-14T13:22:33.277Z",
+  "answer": "Хорошо!"
+}
