@@ -1,0 +1,32 @@
+{
+  "id": "meditsinskiy-poyas-2-dzzq",
+  "type": "Модуль",
+  "name": "Медицинский пояс 2",
+  "rarity": "rare",
+  "desc": "",
+  "tags": [
+    "пояс (с соплами)",
+    "медицинская (лёгкая)"
+  ],
+  "abilities": [],
+  "stats": [
+    {
+      "label": "Порог автовосстановления здоровья",
+      "value": 10,
+      "unit": "п.п.",
+      "max": ""
+    },
+    {
+      "label": "Выносливость",
+      "value": 10,
+      "unit": "",
+      "max": ""
+    }
+  ],
+  "image": "",
+  "gallery": [],
+  "sounds": [],
+  "link": "game-gear-BeltMed2",
+  "created": "2026-11-23T06:46:07.169Z",
+  "updated": "2026-11-23T06:46:07.169Z"
+}
