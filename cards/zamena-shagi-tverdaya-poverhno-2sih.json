@@ -1,0 +1,60 @@
+{
+  "id": "zamena-shagi-tverdaya-poverhno-2sih",
+  "type": "Звук",
+  "name": "Замена: Шаги: твёрдая поверхность",
+  "rarity": "common",
+  "desc": "",
+  "tags": [
+    "звук"
+  ],
+  "abilities": [],
+  "stats": [],
+  "image": "",
+  "gallery": [],
+  "sounds": [
+    {
+      "name": "Snd_FishtStep_01",
+      "path": "cards/media/zamena-shagi-tverdaya-poverhno-2sih/s-1795784563200-1.wav"
+    },
+    {
+      "name": "Snd_FishtStep_02",
+      "path": "cards/media/zamena-shagi-tverdaya-poverhno-2sih/s-1795784563200-2.wav"
+    },
+    {
+      "name": "Snd_FishtStep_03",
+      "path": "cards/media/zamena-shagi-tverdaya-poverhno-2sih/s-1795784563200-3.wav"
+    },
+    {
+      "name": "Snd_FishtStep_04",
+      "path": "cards/media/zamena-shagi-tverdaya-poverhno-2sih/s-1795784563200-4.wav"
+    },
+    {
+      "name": "Snd_FishtStep_05",
+      "path": "cards/media/zamena-shagi-tverdaya-poverhno-2sih/s-1795784563200-5.wav"
+    },
+    {
+      "name": "Snd_FishtStep_06",
+      "path": "cards/media/zamena-shagi-tverdaya-poverhno-2sih/s-1795784563200-6.wav"
+    },
+    {
+      "name": "Snd_FishtStep_07",
+      "path": "cards/media/zamena-shagi-tverdaya-poverhno-2sih/s-1795784563200-7.wav"
+    },
+    {
+      "name": "Snd_FishtStep_08",
+      "path": "cards/media/zamena-shagi-tverdaya-poverhno-2sih/s-1795784563200-8.wav"
+    }
+  ],
+  "link": "g-surfaces-stepwalk",
+  "snd": {
+    "area": "steps",
+    "loop": "oneshot",
+    "volume": "средне",
+    "row": "",
+    "where": "Стандартные звуки шагов Фишта.",
+    "mood": "",
+    "ready": false
+  },
+  "created": "2026-11-27T13:02:57.510Z",
+  "updated": "2026-11-27T13:02:57.510Z"
+}
